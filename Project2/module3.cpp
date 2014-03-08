@@ -14,7 +14,7 @@ void parseAssignments();
 
 int main()
 {
-	// test comment
+	// test comment extended
     Expression* expression;
     char paren, comma;
     cout << "Enter expression: ";
