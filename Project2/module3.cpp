@@ -1,6 +1,8 @@
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <vector>
+
 using namespace std;
 
 #include "expression.h"
@@ -14,6 +16,15 @@ void parseAssignments();
 
 int main()
 {
+	string input[7];
+	fstream inputFile("input.txt", ios::in);
+	if (inputFile.is_open())
+	{
+		getline(inputFile, input[0], '$');
+		cout << input[0] << endl;
+		inputFile.close();
+	}
+	
 	// test comment extended v3
     Expression* expression;
     char paren, comma;
