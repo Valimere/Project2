@@ -9,10 +9,13 @@ class Divide : public SubExpression
 public:
     Divide(Expression* left, Expression* right):
         SubExpression(left, right)
-    {
+	{
     }
     double evaluate()
     {
-       return left->evaluate() / right->evaluate();
+		if (right->evaluate() != 0)
+			return left->evaluate() / right->evaluate();
+		else
+			throw exception("Error: Cannot Divide by zero");
     }
 };

@@ -7,5 +7,6 @@
 class Operand : public Expression
 {
 public:
+	//stream in? (strstream& in);
     static Expression* parse();
 };

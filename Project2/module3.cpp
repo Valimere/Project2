@@ -18,13 +18,14 @@ using namespace std;
 #include "parse.h"
 
 #define inputFileName "input.txt"
+
 SymbolTable symbolTable;
 
 void parseAssignments();
 
 int main()
 {
-	string input[7];
+	string input[10];
 	fstream inputFile(inputFileName, ios::in);
 	if (inputFile.is_open())
 	{
