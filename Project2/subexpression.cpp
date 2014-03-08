@@ -1,3 +1,9 @@
+/*
+* Stephen Drollinger
+* CMSC330
+* Project 2
+* Dev Enironment: Windows 7, Microsoft Visual Studio Express 2013 for Windows Desktop
+*/
 #include <iostream>
 using namespace std;
 
@@ -35,6 +41,8 @@ Expression* SubExpression::parse()
             return new Times(left, right);
         case '/':
             return new Divide(left, right);
+		default: //If above not selected throw error
+			throw exception("Error: Syntax Error");
     }
     return 0;
 }

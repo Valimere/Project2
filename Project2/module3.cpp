@@ -1,3 +1,10 @@
+/*
+* Stephen Drollinger
+* CMSC330
+* Project 2
+* FileModule3.cpp
+* Dev Enironment: Windows 7, Microsoft Visual Studio Express 2013 for Windows Desktop
+*/
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -10,6 +17,7 @@ using namespace std;
 #include "symboltable.h"
 #include "parse.h"
 
+#define inputFileName "input.txt"
 SymbolTable symbolTable;
 
 void parseAssignments();
@@ -17,7 +25,7 @@ void parseAssignments();
 int main()
 {
 	string input[7];
-	fstream inputFile("input.txt", ios::in);
+	fstream inputFile(inputFileName, ios::in);
 	if (inputFile.is_open())
 	{
 		getline(inputFile, input[0], '$');
