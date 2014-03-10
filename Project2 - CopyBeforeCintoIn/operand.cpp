@@ -24,16 +24,16 @@ Expression* Operand::parse(strstream& in)
     char paren;
     double value;
 
-    in >> ws;
-    if (isdigit(in.peek()))
+    cin >> ws;
+    if (isdigit(cin.peek()))
     {
-        in >> value;
+        cin >> value;
         Expression* literal = new Literal(value);
         return literal;
     }
-    if (in.peek() == '(')
+    if (cin.peek() == '(')
     {
-        in >> paren;
+        cin >> paren;
         return SubExpression::parse(in);
     }
     else

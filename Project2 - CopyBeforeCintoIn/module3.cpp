@@ -18,7 +18,7 @@ using namespace std;
 #include "symboltable.h"
 #include "parse.h"
 
-#define inputFileName	"tempInput.txt"
+#define inputFileName	"input.txt"
 #define maximumLineSize	128
 
 SymbolTable symbolTable;
@@ -40,10 +40,11 @@ int main()
 		strstream in(line, maximumLineSize);
 
 		cout << line << " "; // Displaying current line
+		cout << "After current line" << endl;
 		in >> paren; // removing parenthesis
 		cout << "Step 2" << endl;
 
-
+		symbolTable.initalize(); // Clears all data in our symbol table.  
 
 		//cout << expression << endl;
 		expression = SubExpression::parse(in);
@@ -52,21 +53,14 @@ int main()
 		if (comma != ';') // No variables in this one.
 			if (comma == ',')  // Check to make sure we have a comma if we 
 				parseAssignments(in);
-			cout << "Value = "<< endl;
-			cout << endl;
 
-			cout << "Step 4" << endl;
+
 		int result = expression->evaluate();
-		cout << "Step 5" << endl;
 		cout << "Value = " << result << endl;
 		cout << endl;
-		symbolTable.initalize(); // Clears all data in our symbol table.  
 	}
 
-	//in >>comma; // to wait for user input; allows the user to see what was printed before the window closes
-	//in.get();
-	// Keep window open until you press a key.
-	cout << endl << "Press any key to quit";
+	cin>>comma; // to wait for user input; allows the user to see what was printed before the window closes
 	cin.get();
 	return 0;
 
@@ -81,10 +75,8 @@ void parseAssignments(strstream& in)
     do
     {
         variable = parseName(in);
-        in >> ws >> assignop >> value >> delimiter;
+        cin >> ws >> assignop >> value >> delimiter;
         symbolTable.insert(variable, value);
-		if (assignop == '=')
-			symbolTable.insert(variable, value);
     }
     while (delimiter == ',');
 }

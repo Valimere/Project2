@@ -95,17 +95,11 @@
     <ClCompile Include="variable.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="and.h" />
     <ClInclude Include="divide.h" />
-    <ClInclude Include="equals.h" />
     <ClInclude Include="expression.h" />
-    <ClInclude Include="greaterthan.h" />
-    <ClInclude Include="lessthan.h" />
     <ClInclude Include="literal.h" />
     <ClInclude Include="minus.h" />
-    <ClInclude Include="not.h" />
     <ClInclude Include="operand.h" />
-    <ClInclude Include="or.h" />
     <ClInclude Include="parse.h" />
     <ClInclude Include="plus.h" />
     <ClInclude Include="subexpression.h" />

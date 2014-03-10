@@ -26,8 +26,7 @@ double SymbolTable::lookUp(string variable) const
 }
 
 void SymbolTable::initalize() {
-	//elements.clear;
-	for (int i = 0; i < elements.size()-1; i++)
+	for (int i = 0; i < elements.size(); i++)
 		elements[i].value;
 }
 

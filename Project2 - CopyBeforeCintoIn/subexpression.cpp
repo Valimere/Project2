@@ -15,17 +15,12 @@ using namespace std;
 #include "minus.h"
 #include "times.h"
 #include "divide.h"
-#include "greaterthan.h"
-#include "lessthan.h"
-#include "equals.h"
-#include "and.h"
-#include "or.h"
-#include "not.h"
 
 SubExpression::SubExpression(Expression* left, Expression* right)
 {
     this->left = left;
     this->right = right;
+	cout << "Step 2.1" << endl;
 }
 
 Expression* SubExpression::parse(strstream& in)
@@ -36,6 +31,7 @@ Expression* SubExpression::parse(strstream& in)
     
 	cout << "Step 2.2" << endl;
     left = Operand::parse(in);
+	cout << left << endl;
     in >> operation;
     right = Operand::parse(in);
     in >> paren;
@@ -50,20 +46,8 @@ Expression* SubExpression::parse(strstream& in)
             return new Times(left, right);
         case '/':
             return new Divide(left, right);
-		case '<':
-			return new Lessthan(left, right);
-		case '>':
-			return new Greaterthan(left, right);
-		case '=':
-			return new Equals(left, right);
-		case '&':
-			return new And(left, right);
-		case '|':
-			return new Or(left, right);
-		case '!':
-			return new Or(left, right);
-		//default: //If above not selected throw error
-			//throw exception("Error: Syntax Error");
+		default: //If above not selected throw error
+			throw exception("Error: Syntax Error");
     }
     return 0;
 }

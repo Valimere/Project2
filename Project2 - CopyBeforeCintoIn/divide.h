@@ -15,8 +15,7 @@ public:
     {
 		if (right->evaluate() != 0)
 			return left->evaluate() / right->evaluate();
-		//else
-			//throw exception("Error: Cannot Divide by zero");
-		return 0;
+		else
+			throw exception("Error: Cannot Divide by zero");
     }
 };
