@@ -24,3 +24,4 @@ double SymbolTable::lookUp(string variable) const
              return elements[i].value;
     return -1;
 }
+

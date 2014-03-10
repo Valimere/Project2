@@ -7,11 +7,12 @@
 #include <cctype> 
 #include <iostream> 
 #include <string> 
+#include <strstream>
 using namespace std;
 
 #include "parse.h"
 
-string parseName()
+string parseName(strstream& in)
 {
     char alnum;
     string name = "";

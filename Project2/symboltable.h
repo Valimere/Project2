@@ -10,6 +10,7 @@ public:
     SymbolTable() {}
     void insert(string variable, double value);
     double lookUp(string variable) const;
+	void initalize(); // adding to clear table entries 
 private:
     struct Symbol
     {
@@ -23,5 +24,3 @@ private:
     };
     vector <Symbol> elements;
 };
-
-// very different

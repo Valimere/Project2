@@ -8,6 +8,7 @@
 #include <iostream>
 #include <list>
 #include <string>
+#include <strstream>
 
 using namespace std;
 
@@ -18,7 +19,7 @@ using namespace std;
 #include "literal.h"
 #include "parse.h"
 
-Expression* Operand::parse()
+Expression* Operand::parse(strstream& in)
 {
     char paren;
     double value;
@@ -33,9 +34,9 @@ Expression* Operand::parse()
     if (cin.peek() == '(')
     {
         cin >> paren;
-        return SubExpression::parse();
+        return SubExpression::parse(in);
     }
     else
-        return new Variable(parseName());
+        return new Variable(parseName(in));
     return 0;
 }

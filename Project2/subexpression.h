@@ -8,8 +8,7 @@ class SubExpression : public Expression
 {
 public:
     SubExpression(Expression* left, Expression* right);
-	//stream in? (strstream& in);
-    static Expression* parse();
+	static Expression* parse(strstream& in);
 protected: 
     Expression* left;
     Expression* right;
