@@ -17,10 +17,10 @@ string parseName(strstream& in)
     char alnum;
     string name = "";
 
-    cin >> ws;
-    while (isalnum(cin.peek()))
+    in >> ws;
+    while (isalnum(in.peek()))
     {
-        cin >> alnum;
+        in >> alnum;
         name += alnum;
     }
     return name;

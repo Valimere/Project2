@@ -40,14 +40,23 @@ int main()
 		strstream in(line, maximumLineSize);
 
 		cout << line << " "; // Displaying current line
+		cout << "After current line" << endl;
 		in >> paren; // removing parenthesis
-		expression = SubExpression::parse(in);
-		in >> comma;
+		cout << "Step 2" << endl;
 
-		parseAssignments(in);
+		symbolTable.initalize(); // Clears all data in our symbol table.  
+
+		//cout << expression << endl;
+		expression = SubExpression::parse(in);
+		cout << "Step 3" << endl;
+		in >> comma;
+		if (comma != ';') // No variables in this one.
+			if (comma == ',')  // Check to make sure we have a comma if we 
+				parseAssignments(in);
+
 
 		int result = expression->evaluate();
-		cout << "Value = " << expression->evaluate() << endl;
+		cout << "Value = " << result << endl;
 		cout << endl;
 	}
 
